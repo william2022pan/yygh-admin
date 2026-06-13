@@ -20,7 +20,8 @@ pipeline {
         stage('项目编译') {
             agent none
             steps {
-                container('nodejs') {                    
+                container('nodejs') {  
+                    sh 'npm i node-sass --sass_binary_site=https://npmmirror.com/mirrors/node-sass/'             
                     sh 'npm install --registry=https://registry.npmmirror.com'
                     sh 'npm run build'
                     sh 'ls'
